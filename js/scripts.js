@@ -16,7 +16,22 @@ function getComputerChoice(){
             computerChoice = "Scissors";
             break;
     }
-    console.log(computerChoice);
     return computerChoice;
 }
 //    For the user: by asking them.
+function getPlayerChoice(){
+// Prompt user
+    let userChoice = prompt("Rock, paper, or scissors?");
+    userChoice = userChoice.toLowerCase();
+// Check validity of choice
+    switch (true){
+        case userChoice === "rock":
+        case userChoice === "paper":
+        case userChoice === "scissors":
+            return userChoice;
+
+        default:
+            alert("You did not choose anything!");
+            return;
+    }
+}
