@@ -1,0 +1,28 @@
+Step 1, Understand.
+
+The goal: Make a game of Rock paper scissors
+Where: Just on the console
+Players: User and computer
+
+1. Make a game of rock paper scissors (RPS).
+2. The game will have the computer and the user as players.
+3. The game will have x number of rounds, to be set by the user.
+4. Each player will give their choice,
+   For the computer: randomly chosen
+   For the user: by asking them.
+5. After each choice has been taken, compare their choices and determine the winner
+6. Show who is the winner of the round
+   Or if tied, show tie.
+   Add a score of +1 to the winner, and no score if tied or loser.
+7. Repeat until all the rounds finish.
+8. After all rounds has finished, determine the champion.
+9. Show who is the champion. If no champion, say "Nobody won this game!".
+
+Odin Rules:
+
+1. Make a function named: getComputerChoice, that will randomly return the choice for the computer.
+2. Make a function that can play a single round of RPS and will take in two parameters, namely:
+a. playerSelection and,
+b. computerSelection
+which then returns a string declaring the winner of the round, like so: "You Lose! Paper beats Rock".
+<!-- Make sure that the player's selection is case-insensitive -->
