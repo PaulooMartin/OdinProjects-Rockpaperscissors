@@ -6,7 +6,7 @@ Players: User and computer
 
 1. Make a game of rock paper scissors (RPS).
 2. The game will have the computer and the user as players.
-3. The game will have x number of rounds, to be set by the user.
+3. The game will have x number of rounds.
 4. Each player will give their choice,
    For the computer: randomly chosen
    For the user: by asking them.
