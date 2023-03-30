@@ -1,8 +1,7 @@
-const gameRounds = 5;
 let playerScore = 0;
 let computerScore = 0;
 
-game(gameRounds);
+game();
 
 // Each player will give their choice,
 //    For the computer: randomly chosen
@@ -114,16 +113,11 @@ function calcChampion(){
     return;
 }
 
-// The game will have x number of rounds.
-function game(roundCount){
-    for (i = 1; i <= roundCount; i++){
-        console.log (`%cRound ${i}`, "color: darkblue; font-weight: bold;");
-        let computerSelection = getComputerChoice();
-        let playerSelection = getPlayerChoice();
-        let finalResult  = gameOn(playerSelection, computerSelection);
-        console.log(finalResult);
-    }
-    calcChampion();
+function game(){
+    let computerSelection = getComputerChoice();
+    let playerSelection = getPlayerChoice();
+    let finalResult  = gameOn(playerSelection, computerSelection);
+    console.log(finalResult);
     console.log ("%c-----Game End-----", "color: darkblue; font-weight: bolder");
     return;
 }
