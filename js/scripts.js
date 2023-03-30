@@ -1,10 +1,20 @@
 let playerScore = 0;
 let computerScore = 0;
 
-game();
+const choicesBtn = document.querySelectorAll('.choice');
+choicesBtn.forEach(playRound)
+
+
+// Allows each button to play one round of RPS
+function playRound (buttonClicked){
+    buttonClicked.addEventListener ('click', () =>{
+        let roundChoice = buttonClicked.innerText.toLowerCase();
+        game(roundChoice);
+    })
+}
 
 // Each player will give their choice,
-//    For the computer: randomly chosen
+// For the computer: randomly chosen
 function getComputerChoice(){
     const randomChoice = Math.floor(Math.random() * 3)
     let computerChoice;
@@ -23,7 +33,7 @@ function getComputerChoice(){
     }
     return computerChoice;
 }
-//    For the user: by asking them.
+// For the user: by asking them. (LEGACY)
 function getPlayerChoice(){
 // Prompt user
     let userChoice = prompt("Rock, paper, or scissors?");
@@ -113,10 +123,9 @@ function calcChampion(){
     return;
 }
 
-function game(){
+function game(playerChoice){
     let computerSelection = getComputerChoice();
-    let playerSelection = getPlayerChoice();
-    let finalResult  = gameOn(playerSelection, computerSelection);
+    let finalResult  = gameOn(playerChoice, computerSelection);
     console.log(finalResult);
     console.log ("%c-----Game End-----", "color: darkblue; font-weight: bolder");
     return;
