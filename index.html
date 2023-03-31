@@ -8,10 +8,22 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <section>
-      <button class="choice">Rock</button>
-      <button class="choice">Paper</button>
-      <button class="choice">Scissors</button>
+    <div class="header">
+      <div class="scoreboard">
+        <h3>Player: <span class="player-score">0</span></h3>
+        <h3>Computer: <span class="computer-score">0</span></h3>
+      </div>
+      <h3>Round <span class="round-count">0</span></h3>
+    </div>
+    <section class="game-area">
+      <div class="computer-screen">
+        <h2 class="computer-message">Let's play!</h2>
+      </div>
+      <div class="buttons">
+        <button class="choice">Rock</button>
+        <button class="choice">Paper</button>
+        <button class="choice">Scissors</button>
+      </div>
     </section>
     <script src="js/scripts.js"></script>
   </body>

@@ -2,17 +2,35 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 20px 200px;
 }
 
-section{
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-area{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.buttons{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
     gap: 100px;
 }
 
 .choice{
     padding: 50px;
     text-align: center;
+}
+
+h2,h3 {
+    margin: 0px;
 }
