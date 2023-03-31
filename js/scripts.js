@@ -1,6 +1,8 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const displayPlayerScore = document.querySelector('.player-score')
+const displayComputerScore = document.querySelector('.computer-score')
 const choicesBtn = document.querySelectorAll('.choice');
 
 // Allows each button to play one round of RPS
@@ -58,6 +60,18 @@ function getPlayerChoice(){
     }
 }
 
+function updatePlayerScore(){
+    playerScore++;
+    displayPlayerScore.innerText = playerScore;
+    return;
+}
+
+function updateComputerScore(){
+    computerScore++
+    displayComputerScore.innerText = computerScore;
+    return;
+}
+
 // After each choice has been taken, compare their choices and determine the winner
 function calcRoundResult(playerSelection, computerSelection){
     let roundResult;
@@ -68,30 +82,30 @@ function calcRoundResult(playerSelection, computerSelection){
             case playerSelection === "rock":
                 if (computerSelection === "paper"){
                     roundResult = "You Lose! Paper beats Rock";
-                    computerScore++
+                    updateComputerScore();
                 } else {
                     roundResult = "You Win! Rock beats Scissors"
-                    playerScore++
+                    updatePlayerScore();
                 }
                 break;
 
             case playerSelection === "scissors":
                 if (computerSelection === "rock"){
                     roundResult = "You Lose! Rock beats Scissors";
-                    computerScore++
+                    updateComputerScore();
                 } else {
                     roundResult = "You Win! Scissors beats Paper";
-                    playerScore++
+                    updatePlayerScore();
                 }
                 break;
 
             case playerSelection === "paper":
                 if (computerSelection === "scissors"){
                     roundResult = "You Lose! Scissors beats Paper";
-                    computerScore++
+                    updateComputerScore();
                 } else {
                     roundResult = "You Win! Paper beats Rock"
-                    playerScore++
+                    updatePlayerScore();
                 }
                 break;
 
@@ -131,3 +145,7 @@ function game(playerChoice){
     console.log ("%c-----Game End-----", "color: darkblue; font-weight: bolder");
     return;
 }
+
+// Update scoreboard
+// Update roundcount
+// Show computer choice
