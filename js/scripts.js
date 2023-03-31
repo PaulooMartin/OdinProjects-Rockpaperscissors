@@ -2,10 +2,11 @@ let playerScore = 0;
 let computerScore = 0;
 
 const choicesBtn = document.querySelectorAll('.choice');
+
+// Allows each button to play one round of RPS
 choicesBtn.forEach(playRound)
 
 
-// Allows each button to play one round of RPS
 function playRound (buttonClicked){
     buttonClicked.addEventListener ('click', () =>{
         let roundChoice = buttonClicked.innerText.toLowerCase();
@@ -58,7 +59,7 @@ function getPlayerChoice(){
 }
 
 // After each choice has been taken, compare their choices and determine the winner
-function gameOn(playerSelection, computerSelection){
+function calcRoundResult(playerSelection, computerSelection){
     let roundResult;
     if (playerSelection === computerSelection){
         roundResult = "This round is tied!"
@@ -125,7 +126,7 @@ function calcChampion(){
 
 function game(playerChoice){
     let computerSelection = getComputerChoice();
-    let finalResult  = gameOn(playerChoice, computerSelection);
+    let finalResult  = calcRoundResult(playerChoice, computerSelection);
     console.log(finalResult);
     console.log ("%c-----Game End-----", "color: darkblue; font-weight: bolder");
     return;
