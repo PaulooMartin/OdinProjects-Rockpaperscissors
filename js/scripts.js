@@ -1,8 +1,10 @@
 let playerScore = 0;
 let computerScore = 0;
+let rounds = 0;
 
-const displayPlayerScore = document.querySelector('.player-score')
-const displayComputerScore = document.querySelector('.computer-score')
+const displayPlayerScore = document.querySelector('.player-score');
+const displayComputerScore = document.querySelector('.computer-score');
+const displayRoundCount = document.querySelector('.round-count');
 const choicesBtn = document.querySelectorAll('.choice');
 
 // Allows each button to play one round of RPS
@@ -72,6 +74,11 @@ function updateComputerScore(){
     return;
 }
 
+function updateRoundCount(){
+    rounds++;
+    displayRoundCount.innerText = rounds;
+}
+
 // After each choice has been taken, compare their choices and determine the winner
 function calcRoundResult(playerSelection, computerSelection){
     let roundResult;
@@ -112,7 +119,8 @@ function calcRoundResult(playerSelection, computerSelection){
             default:
                 roundResult = "Something somewhere is wrong. Must have been your answer T_T"
     }
-}
+    }
+    updateRoundCount();
     return roundResult;
 }
 
@@ -146,6 +154,5 @@ function game(playerChoice){
     return;
 }
 
-// Update scoreboard
 // Update roundcount
 // Show computer choice
