@@ -23,7 +23,7 @@ const gameEndWin = ["Nobody saw that you lost right? :p","Destiny meets reality 
 
 function playRound (buttonClicked){
     buttonClicked.addEventListener ('click', () =>{
-        let roundChoice = buttonClicked.innerText.toLowerCase();
+        let roundChoice = buttonClicked.textContent.toLowerCase();
         game(roundChoice);
     })
 }
@@ -73,28 +73,28 @@ function getPlayerChoice(){
 }
 
 function updatePlayerScore(){
-    resultMessage.innerText = compLoseMessages[Math.floor(Math.random() * 3)]
+    resultMessage.textContent = compLoseMessages[Math.floor(Math.random() * 3)]
     playerScore++;
-    displayPlayerScore.innerText = playerScore;
+    displayPlayerScore.textContent = playerScore;
     return;
 }
 
 function updateComputerScore(){
-    resultMessage.innerText = compWinMessages[Math.floor(Math.random() * 3)]
+    resultMessage.textContent = compWinMessages[Math.floor(Math.random() * 3)]
     computerScore++
-    displayComputerScore.innerText = computerScore;
+    displayComputerScore.textContent = computerScore;
     return;
 }
 
 function updateRoundCount(){
     rounds++;
-    displayRoundCount.innerText = rounds;
+    displayRoundCount.textContent = rounds;
 }
 
 // After each choice has been taken, compare their choices and determine the winner
 function calcRoundResult(playerSelection, computerSelection){
     if (playerSelection === computerSelection){
-    resultMessage.innerText = tieMessages[Math.floor(Math.random() * 3)]
+    resultMessage.textContent = tieMessages[Math.floor(Math.random() * 3)]
     } else{
         switch (true){
             case playerSelection === "rock":
