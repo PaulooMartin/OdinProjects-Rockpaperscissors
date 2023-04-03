@@ -11,10 +11,14 @@ const choicesBtn = document.querySelectorAll('.choice');
 // Allows each button to play one round of RPS
 choicesBtn.forEach(playRound)
 
+// Round-result messages from the perspective of the computer
 const tieMessages = ["It's a tie this round :\_)", "Nobody won this round.", "New round please!"];
 const compLoseMessages = ["You just got lucky this round","Alright I lost this round.","It's not yet over. New round please!"];
-const compMessages = [":], Heh!, Ez round win", "Beat that human, let's go new round!","Thanks for the round win :]"]
+const compWinMessages = [":], Heh!, Ez round win", "Beat that human, let's go new round!","Thanks for the round win :]"]
 
+// Game-result messages from the perspective of the computer
+const gameEndlose = ["Congrats player! You won.","I'll get you next time around","Sigh. I get it, you won, congrats :)"];
+const gameEndWin = ["Nobody saw that you lost right? :p","Destiny meets reality :))))","I guess that's it this game. Congrats on 2nd place :]"];
 
 function playRound (buttonClicked){
     buttonClicked.addEventListener ('click', () =>{
@@ -122,17 +126,14 @@ function calcRoundResult(playerSelection, computerSelection){
 }
 
 function calcChampion(){
+    const messageNumber = Math.floor(Math.random() * 3);
     switch (true){
-        case (playerScore === computerScore):
-            console.log("Nobody won the game");
-            break;
-
         case (playerScore > computerScore):
-            console.log("%cYou won! Beat that, piece of machine!", "color: green; font-weight: bold;");
+            resultMessage.innerText = gameEndlose[messageNumber];
             break;
 
         case (computerScore > playerScore):
-            console.log("%cYou lost. Nobody saw that right?", "color: red; font-weight: bold;");
+            resultMessage.innerText = gameEndWin[messageNumber];
             break;
 
         default:
