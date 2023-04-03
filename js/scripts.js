@@ -12,8 +12,8 @@ const choicesBtn = document.querySelectorAll('.choice');
 choicesBtn.forEach(playRound)
 
 const tieMessages = ["It's a tie this round :\_)", "Nobody won this round.", "New round please!"];
-const computerLoseMessages = ["You just got lucky this round","Alright I lost this round.","It's not yet over. New round please!"];
-const computerWinMessages = [":], Heh!, Ez round win", "Beat that human, let's go new round!","Thanks for the round win :]"]
+const compLoseMessages = ["You just got lucky this round","Alright I lost this round.","It's not yet over. New round please!"];
+const compMessages = [":], Heh!, Ez round win", "Beat that human, let's go new round!","Thanks for the round win :]"]
 
 
 function playRound (buttonClicked){
@@ -68,14 +68,14 @@ function getPlayerChoice(){
 }
 
 function updatePlayerScore(){
-    resultMessage.innerText = computerLoseMessages[Math.floor(Math.random() * 3)]
+    resultMessage.innerText = compLoseMessages[Math.floor(Math.random() * 3)]
     playerScore++;
     displayPlayerScore.innerText = playerScore;
     return;
 }
 
 function updateComputerScore(){
-    resultMessage.innerText = computerWinMessages[Math.floor(Math.random() * 3)]
+    resultMessage.innerText = compWinMessages[Math.floor(Math.random() * 3)]
     computerScore++
     displayComputerScore.innerText = computerScore;
     return;
@@ -145,7 +145,7 @@ function calcChampion(){
 
 function game(playerChoice){
     let computerSelection = getComputerChoice();
-    let finalResult  = calcRoundResult(playerChoice, computerSelection);
+    calcRoundResult(playerChoice, computerSelection);
     console.log ("%c-----Game End-----", "color: darkblue; font-weight: bolder");
     return;
 }
