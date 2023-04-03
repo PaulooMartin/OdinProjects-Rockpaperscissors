@@ -2,6 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 let rounds = 0;
 
+const pageBody = document.querySelector('body');
 const displayPlayerScore = document.querySelector('.player-score');
 const displayComputerScore = document.querySelector('.computer-score');
 const displayRoundCount = document.querySelector('.round-count');
@@ -127,21 +128,37 @@ function calcRoundResult(playerSelection, computerSelection){
 
 function calcChampion(){
     const messageNumber = Math.floor(Math.random() * 3);
+    let gameResult = "";
     switch (true){
         case (playerScore > computerScore):
-            resultMessage.innerText = gameEndlose[messageNumber];
+            gameResult = gameEndlose[messageNumber];
             break;
 
         case (computerScore > playerScore):
-            resultMessage.innerText = gameEndWin[messageNumber];
+            gameResult = gameEndWin[messageNumber];
             break;
 
         default:
             alert("Something somewhere went wrong. Function: calcChampion");
     }
-    playerScore = 0;
-    computerScore = 0;
-    return;
+    return gameResult;
+}
+
+function gameEndOverlay(){
+    const overlaySection = document.createElement('section');
+    const overlayDiv = document.createElement('div');
+    const resultMessage = document.createElement ('p');
+    const resetButton = document.createElement ('button');
+
+    overlaySection.className = "game-end";
+    resultMessage.textContent = calcChampion();
+    resetButton.textContent = "Play again!"
+
+    overlayDiv.appendChild(resultMessage);
+    overlayDiv.appendChild(resetButton);
+
+    overlaySection.appendChild(overlayDiv);
+    pageBody.appendChild(overlaySection);
 }
 
 function game(playerChoice){
