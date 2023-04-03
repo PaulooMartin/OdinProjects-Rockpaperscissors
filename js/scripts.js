@@ -159,11 +159,27 @@ function gameEndOverlay(){
 
     overlaySection.appendChild(overlayDiv);
     pageBody.appendChild(overlaySection);
+
+    resetButton.addEventListener('click', () => {
+        resetGame();
+        pageBody.removeChild(overlaySection);
+    })
+    return;
+}
+
+function resetGame () {
+    displayPlayerScore.textContent = playerScore = 0;
+    displayComputerScore.textContent = computerScore = 0;
+    displayRoundCount.textContent = rounds = 0;
+    resultMessage.textContent = "Alright new game, let's go! :]"
+    return;
 }
 
 function game(playerChoice){
     let computerSelection = getComputerChoice();
     calcRoundResult(playerChoice, computerSelection);
-    console.log ("%c-----Game End-----", "color: darkblue; font-weight: bolder");
+    if (playerScore === 5 || computerScore == 5){
+        gameEndOverlay();
+    }
     return;
 }
