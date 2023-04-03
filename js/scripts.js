@@ -88,47 +88,37 @@ function updateRoundCount(){
 
 // After each choice has been taken, compare their choices and determine the winner
 function calcRoundResult(playerSelection, computerSelection){
-    let roundResult;
     if (playerSelection === computerSelection){
-        roundResult = "This round is tied!"
+    resultMessage.innerText = tieMessages[Math.floor(Math.random() * 3)]
     } else{
         switch (true){
             case playerSelection === "rock":
                 if (computerSelection === "paper"){
-                    roundResult = "You Lose! Paper beats Rock";
                     updateComputerScore();
                 } else {
-                    roundResult = "You Win! Rock beats Scissors"
                     updatePlayerScore();
                 }
                 break;
 
             case playerSelection === "scissors":
                 if (computerSelection === "rock"){
-                    roundResult = "You Lose! Rock beats Scissors";
                     updateComputerScore();
                 } else {
-                    roundResult = "You Win! Scissors beats Paper";
                     updatePlayerScore();
                 }
                 break;
 
             case playerSelection === "paper":
                 if (computerSelection === "scissors"){
-                    roundResult = "You Lose! Scissors beats Paper";
                     updateComputerScore();
                 } else {
-                    roundResult = "You Win! Paper beats Rock"
                     updatePlayerScore();
                 }
                 break;
-
-            default:
-                roundResult = "Something somewhere is wrong. Must have been your answer T_T"
     }
     }
     updateRoundCount();
-    return roundResult;
+    return;
 }
 
 function calcChampion(){
@@ -156,7 +146,6 @@ function calcChampion(){
 function game(playerChoice){
     let computerSelection = getComputerChoice();
     let finalResult  = calcRoundResult(playerChoice, computerSelection);
-    console.log(finalResult);
     console.log ("%c-----Game End-----", "color: darkblue; font-weight: bolder");
     return;
 }
